@@ -36,18 +36,20 @@ Automatizar y centralizar la limpieza de contenedores, imágenes, redes y volúm
 
 ## 🗂️ Estructura del Proyecto
 
+```
 docker_cleaner/
 ├── app/
 │   ├── __init__.py
-│   ├── cleaner.py # Lógica principal de limpieza Docker
-│   ├── cli.py # Menú en consola con Rich
-│   ├── tui.py # Interfaz de texto con Textual
-│   ├── web.py # API REST con Flask
-│   └── utils.py # Utilidades: validaciones, logs
-├── Dockerfile # Imagen Docker ejecutable
-├── requirements.txt # Dependencias del proyecto
-├── docker_cleaner.log # Logs de ejecución (autogenerado)
-└── README.md # Este archivo
+│   ├── cleaner.py        # Lógica principal de limpieza Docker
+│   ├── cli.py            # Menú en consola con Rich
+│   ├── tui.py            # Interfaz de texto con Textual
+│   ├── web.py            # API REST con Flask
+│   └── utils.py          # Utilidades: validaciones, logs
+├── Dockerfile            # Imagen Docker ejecutable
+├── requirements.txt      # Dependencias del proyecto
+├── docker_cleaner.log    # Logs de ejecución (autogenerado)
+└── README.md             # Este archivo
+```
 
 ---
 
