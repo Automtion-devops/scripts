@@ -9,69 +9,71 @@ Una herramienta interactiva, modular y extensible para mantener tu entorno Docke
 1. [🎯 Objetivo](#-objetivo)
 2. [🧰 Finalidad](#-finalidad)
 3. [🗂️ Estructura del Proyecto](#️-estructura-del-proyecto)
-4. [🧪 Modo CLI](#-modo-cli-consola-clásica-con-rich)
-5. [🎛️ Modo TUI](#-modo-tui-interfaz-de-texto-interactiva)
-6. [🖥️ Modo Web](#-modo-web-api-rest-con-flask)
-7. [🐳 Modo Docker](#-ejecutar-en-docker)
+4. [🧪 Modo CLI](#-modo-cli)
+5. [🎛️ Modo TUI](#-modo-tui)
+6. [🖥️ Modo Web](#-modo-web)
+7. [🐳 Ejecutar en Docker](#-ejecutar-en-docker)
 8. [📝 Logs](#-logs)
 9. [📊 Diagrama del flujo de ejecución](#-diagrama-del-flujo-de-ejecución)
-10. [🔐 Múltiples cuentas GitHub](#-configuración-ssh-para-múltiples-cuentas-de-github)
+10. [🔐 Configuración SSH para múltiples cuentas GitHub](#-configuración-ssh-para-múltiples-cuentas-github)
 11. [✍️ Autor](#-autor)
+12. [💡 Próximas mejoras](#-próximas-mejoras)
 
 ---
 
 ## 🎯 Objetivo
 
-Automatizar y centralizar la limpieza de contenedores, imágenes, redes y volúmenes de Docker, con una experiencia de usuario multiplataforma: CLI, TUI, Web, o contenedor.
+Automatizar y centralizar la limpieza de contenedores, imágenes, redes y volúmenes de Docker, con una experiencia de usuario multiplataforma: CLI, TUI, Web o contenedor.
 
 ---
 
 ## 🧰 Finalidad
 
-- Ahorrar tiempo limpiando recursos inactivos
-- Visualizar el estado de Docker fácilmente
-- Facilitar su ejecución desde distintos entornos (terminal, navegador, o Docker)
+- Ahorrar tiempo limpiando recursos inactivos.
+- Visualizar el estado de Docker fácilmente.
+- Facilitar su ejecución desde distintos entornos (terminal, navegador o Docker).
 
 ---
 
 ## 🗂️ Estructura del Proyecto
 
 ```
-docker_cleaner/
-├── app/
-│   ├── __init__.py
-│   ├── cleaner.py        # Lógica principal de limpieza Docker
-│   ├── cli.py            # Menú en consola con Rich
-│   ├── tui.py            # Interfaz de texto con Textual
-│   ├── web.py            # API REST con Flask
-│   └── utils.py          # Utilidades: validaciones, logs
-├── Dockerfile            # Imagen Docker ejecutable
-├── requirements.txt      # Dependencias del proyecto
-├── docker_cleaner.log    # Logs de ejecución (autogenerado)
-└── README.md             # Este archivo
+docker_cleaner/ ├── app/ │ ├── init.py │ ├── cleaner.py # Lógica principal de limpieza Docker │ ├── cli.py # Menú en consola con Rich │ ├── tui.py # Interfaz de texto con Textual │ ├── web.py # API REST con Flask │ ├── utils.py # Utilidades: validaciones, logs │ ├── static/ # Archivos estáticos (CSS, JS) │ │ ├── css/ │ │ │ └── styles.css │ │ └── js/ │ │ └── scripts.js │ ├── templates/ # Plantillas HTML │ │ └── index.html ├── Dockerfile # Imagen Docker ejecutable ├── requirements.txt # Dependencias del proyecto ├── docker_cleaner.log # Logs de ejecución (autogenerado) └── README.md # Este archivo
 ```
 
 ---
 
-## 🧪 Modo CLI (Consola clásica con Rich)
+## 🧪 Modo CLI
+
+Ejecuta el siguiente comando para iniciar el menú interactivo en la consola:
 
 ```bash
 python -m app.cli
 ```
+
 Permite navegar por un menú de texto en la consola, usando teclas numéricas. Ideal para uso rápido desde terminales SSH o shell scripts.
 
+Características:
+Navega por un menú de texto usando teclas numéricas.
+Ideal para uso rápido desde terminales SSH o scripts.
 ---
 
-## 🎛️ Modo TUI (Interfaz de texto interactiva)
+## 🎛️ Modo TUI
+
+Ejecuta el siguiente comando para abrir la interfaz de texto interactiva:
 
 ```bash
 python -m app.tui
 ```
 Abre una interfaz estilo terminal con botones interactivos. Ideal para quienes disfrutan el modo visual sin salir del terminal.
 
+Características:
+Interfaz visual en la terminal con botones interactivos.
+Ideal para quienes prefieren una experiencia más visual sin salir del terminal.
 ---
 
-## 🖥️ Modo Web (API REST con Flask)
+## 🖥️ Modo Web
+Ejecuta el siguiente comando para iniciar la API REST:
 
 ```bash
 python -m app.web
@@ -86,7 +88,7 @@ Endpoints disponibles:
 - **GET /disk** → Uso de disco
 
 Luego accede desde tu navegador a:
-📡 http://localhost:5000/status
+📡 http://localhost:5000
 
 ---
 
@@ -140,7 +142,7 @@ docker_cleaner.log
 
 ---
 
-## 🔐 Configuración SSH para múltiples cuentas de GitHub
+## 🔐 Configuración SSH para múltiples cuentas GitHub
 
 Si trabajas con varias identidades (por ejemplo, una cuenta personal y una de organización), puedes configurar claves SSH separadas sin conflictos.
 

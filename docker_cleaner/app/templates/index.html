@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Cleaner</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Docker Cleaner</h1>
+    <div id="results-container">
+        <h2>Resultados</h2>
+        <div id="results"></div>
+    </div>
+    <div id="buttons-container">
+        <button onclick="fetchStatus()">Ver Estado</button>
+        <button onclick="cleanBasic()">Limpieza Básica</button>
+        <button onclick="cleanAdvanced()">Limpieza Avanzada</button>
+        <button onclick="cleanVolumes()">Limpiar Volúmenes</button>
+        <button onclick="showDisk()">Ver Uso de Disco</button>
+    </div>
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>
