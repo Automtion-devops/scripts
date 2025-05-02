@@ -1,7 +1,6 @@
 # 🐳 Docker Cleaner
 
-Una herramienta interactiva, modular y extensible para mantener tu entorno Docker limpio y eficiente.  
-Perfecta para DevOps que valoran el orden... y el tiempo.  
+Una herramienta interactiva, modular y extensible para mantener tu entorno Docker limpio y eficiente. Perfecta para DevOps que valoran el orden... y el tiempo.
 
 ---
 
@@ -39,17 +38,16 @@ Automatizar y centralizar la limpieza de contenedores, imágenes, redes y volúm
 
 docker_cleaner/
 ├── app/
-│ ├── init.py
-│ ├── cleaner.py # Lógica principal de limpieza Docker
-│ ├── cli.py # Menú en consola con Rich
-│ ├── tui.py # Interfaz de texto con Textual
-│ ├── web.py # API REST con Flask
-│ └── utils.py # Utilidades: validaciones, logs
+│   ├── __init__.py
+│   ├── cleaner.py # Lógica principal de limpieza Docker
+│   ├── cli.py # Menú en consola con Rich
+│   ├── tui.py # Interfaz de texto con Textual
+│   ├── web.py # API REST con Flask
+│   └── utils.py # Utilidades: validaciones, logs
 ├── Dockerfile # Imagen Docker ejecutable
 ├── requirements.txt # Dependencias del proyecto
 ├── docker_cleaner.log # Logs de ejecución (autogenerado)
 └── README.md # Este archivo
-
 
 ---
 
@@ -60,14 +58,18 @@ python -m app.cli
 ```
 Permite navegar por un menú de texto en la consola, usando teclas numéricas. Ideal para uso rápido desde terminales SSH o shell scripts.
 
-🎛️ Modo TUI (Interfaz de texto interactiva)
+---
+
+## 🎛️ Modo TUI (Interfaz de texto interactiva)
 
 ```bash
 python -m app.tui
 ```
 Abre una interfaz estilo terminal con botones interactivos. Ideal para quienes disfrutan el modo visual sin salir del terminal.
 
-🖥️ Modo Web (API REST con Flask)
+---
+
+## 🖥️ Modo Web (API REST con Flask)
 
 ```bash
 python -m app.web
@@ -75,40 +77,48 @@ python -m app.web
 
 Endpoints disponibles:
 
-GET /status → Estado de contenedores, imágenes y volúmenes
-
-GET /clean/basic → Limpieza básica
-
-GET /clean/advanced → Limpieza avanzada (-a)
-
-GET /clean/volumes → Limpieza de volúmenes
-
-GET /disk → Uso de disco
+- **GET /status** → Estado de contenedores, imágenes y volúmenes
+- **GET /clean/basic** → Limpieza básica
+- **GET /clean/advanced** → Limpieza avanzada (-a)
+- **GET /clean/volumes** → Limpieza de volúmenes
+- **GET /disk** → Uso de disco
 
 Luego accede desde tu navegador a:
 📡 http://localhost:5000/status
 
-🐳 Ejecutar en Docker
+---
+
+## 🐳 Ejecutar en Docker
 
 1. Construir imagen
+
 ```bash
 docker build -t docker-cleaner .
 ```
+
 2. Ejecutar con acceso al Docker del host
+
 ```bash
 docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock docker-cleaner
 ```
-✅ Por defecto se ejecuta el modo CLI.
-Puedes cambiarlo modificando CMD en el Dockerfile.
 
-📝 Logs
+✅ Por defecto se ejecuta el modo CLI. Puedes cambiarlo modificando CMD en el Dockerfile.
+
+---
+
+## 📝 Logs
+
 Todos los comandos ejecutados y errores quedan registrados en:
+
 ```bash
 docker_cleaner.log
 ```
 
-📊 Diagrama del flujo de ejecución
+---
 
+## 📊 Diagrama del flujo de ejecución
+
+```
                 ┌────────────────────────────┐
                 │        Interfaz CLI        │
                 ├────────────┬───────────────┤
@@ -124,20 +134,26 @@ docker_cleaner.log
                └────────────┬───────────────┘
                             │
                      Subprocess + Logs
+```
 
-🔐 Configuración SSH para múltiples cuentas de GitHub
+---
+
+## 🔐 Configuración SSH para múltiples cuentas de GitHub
 
 Si trabajas con varias identidades (por ejemplo, una cuenta personal y una de organización), puedes configurar claves SSH separadas sin conflictos.
 
-✅ Paso a paso para manejar varias identidades
-Genera una nueva clave para la organización:
+### ✅ Paso a paso para manejar varias identidades
+
+1. Genera una nueva clave para la organización:
+
 ```bash
 ssh-keygen -t ed25519 -C "github-automation-devops" -f ~/.ssh/id_ed25519_automation
 ```
 
-Agrega la clave pública (.pub) a GitHub, en la organización correspondiente (Automtion-devops).
+2. Agrega la clave pública (.pub) a GitHub, en la organización correspondiente (Automtion-devops).
 
-Crea o edita el archivo ~/.ssh/config con:
+3. Crea o edita el archivo ~/.ssh/config con:
+
 ```bash
 # Cuenta personal: jhenao-nex
 Host github.com
@@ -152,38 +168,45 @@ Host github-automation
     IdentityFile ~/.ssh/id_ed25519_automation
 ```
 
-Usa github-automation como host remoto en tus repos de la organización:
+4. Usa github-automation como host remoto en tus repos de la organización:
+
 ```bash
 git remote set-url origin git@github-automation:Automtion-devops/scripts.git
 ```
 
-🔁 ¿Y si quiero volver a trabajar con mi cuenta personal?
+### 🔁 ¿Y si quiero volver a trabajar con mi cuenta personal?
+
 Solo asegúrate de que el remote esté usando el host normal:
+
 ```bash
 git remote set-url origin git@github.com:jhenao-nex/mi-repo.git
 ```
+
 Este host usa por defecto la clave ~/.ssh/id_ed25519, correspondiente a tu cuenta personal.
 
-✅ Resultado
+### ✅ Resultado
+
 Puedes trabajar con múltiples cuentas GitHub sin conflicto, simplemente cambiando el remote según corresponda:
 
-github.com → tu cuenta personal (jhenao-nex)
+- **github.com** → tu cuenta personal (jhenao-nex)
+- **github-automation** → tu organización (Automtion-devops)
 
-github-automation → tu organización (Automtion-devops)
+---
 
-✍️ Autor
+## ✍️ Autor
+
 Jaime A. Henao A.
 DevOps / Cloud Engineer ☁️ 🛠️
 📧 Contacto disponible bajo solicitud
 
-💡 Próximas mejoras
-Configuración por archivo .env
+---
 
-Autenticación básica para API web
+## 💡 Próximas mejoras
 
-Programador de tareas (cron-style)
-
-GUI desktop con Tkinter o Electron
+- Configuración por archivo .env
+- Autenticación básica para API web
+- Programador de tareas (cron-style)
+- GUI desktop con Tkinter o Electron
 
 ¡Gracias por usar Docker Cleaner!
 💥 Haz que tu entorno Docker vuelva a respirar.
