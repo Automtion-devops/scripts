@@ -1,0 +1,45 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Archivos Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de logs
+*.log
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Entornos y configuraciones de IDEs
+.vscode/
+.idea/
+
+# Salidas de tests / coverage
+htmlcov/
+coverage.xml
+.tox/
+.pytest_cache/
+.cache/
+
+# Archivos de configuración personales
+.env
+*.env
+
+# Docker cache/volúmenes temporales (si generas alguno localmente)
+docker-cleaner/
+
+# Archivos de ejecución
+*.pid
+*.db
+
+# Archivos de salida o dumps
+*.out
+*.bak
+*.swp
+
+# Jupyter / notebooks
+*.ipynb_checkpoints
