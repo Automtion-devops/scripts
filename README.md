@@ -37,8 +37,26 @@ Automatizar y centralizar la limpieza de contenedores, imágenes, redes y volúm
 
 ## 🗂️ Estructura del Proyecto
 
-```
-docker_cleaner/ ├── app/ │ ├── init.py │ ├── cleaner.py # Lógica principal de limpieza Docker │ ├── cli.py # Menú en consola con Rich │ ├── tui.py # Interfaz de texto con Textual │ ├── web.py # API REST con Flask │ ├── utils.py # Utilidades: validaciones, logs │ ├── static/ # Archivos estáticos (CSS, JS) │ │ ├── css/ │ │ │ └── styles.css │ │ └── js/ │ │ └── scripts.js │ ├── templates/ # Plantillas HTML │ │ └── index.html ├── Dockerfile # Imagen Docker ejecutable ├── requirements.txt # Dependencias del proyecto ├── docker_cleaner.log # Logs de ejecución (autogenerado) └── README.md # Este archivo
+```plaintext
+docker_cleaner/
+├── app/
+│   ├── __init__.py
+│   ├── cleaner.py        # Lógica principal de limpieza Docker
+│   ├── cli.py            # Menú en consola con Rich
+│   ├── tui.py            # Interfaz de texto con Textual
+│   ├── web.py            # API REST con Flask
+│   ├── utils.py          # Utilidades: validaciones, logs
+│   ├── static/           # Archivos estáticos (CSS, JS)
+│   │   ├── css/
+│   │   │   └── styles.css
+│   │   └── js/
+│   │       └── scripts.js
+│   ├── templates/        # Plantillas HTML
+│   │   └── index.html
+├── Dockerfile            # Imagen Docker ejecutable
+├── requirements.txt      # Dependencias del proyecto
+├── docker_cleaner.log    # Logs de ejecución (autogenerado)
+└── [README.md](http://_vscodecontentref_/1)             # Este archivo
 ```
 
 ---
@@ -53,9 +71,10 @@ python -m app.cli
 
 Permite navegar por un menú de texto en la consola, usando teclas numéricas. Ideal para uso rápido desde terminales SSH o shell scripts.
 
-Características:
-Navega por un menú de texto usando teclas numéricas.
-Ideal para uso rápido desde terminales SSH o scripts.
+* Características:
+- Navega por un menú de texto usando teclas numéricas.
+- Ideal para uso rápido desde terminales SSH o scripts.
+
 ---
 
 ## 🎛️ Modo TUI
@@ -67,9 +86,10 @@ python -m app.tui
 ```
 Abre una interfaz estilo terminal con botones interactivos. Ideal para quienes disfrutan el modo visual sin salir del terminal.
 
-Características:
-Interfaz visual en la terminal con botones interactivos.
-Ideal para quienes prefieren una experiencia más visual sin salir del terminal.
+* Características:
+- Interfaz visual en la terminal con botones interactivos.
+- Ideal para quienes prefieren una experiencia más visual sin salir del terminal.
+
 ---
 
 ## 🖥️ Modo Web
